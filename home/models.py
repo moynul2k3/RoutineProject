@@ -21,7 +21,7 @@ class Batch(models.Model):
         ordering = ['-name']
 
     def __str__(self):
-        return f"{self.id}. {self.name}"
+        return f"{self.id}: {self.depertment.name}.  {self.name}"
     
 
 class Routeen(models.Model):
@@ -35,4 +35,4 @@ class Routeen(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return f"{self.id}. {self.title}"
+        return f"{self.id}. {self.depertment.name} {self.title}"
