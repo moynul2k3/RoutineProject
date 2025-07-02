@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static tailwind_tags %}
+{% block title %}| Routeen List{% endblock %}
+
+{% block content %}
+<div class="min-h-[600px] p-6 max-w-4xl mx-auto pt-32">
+    <h1 class="text-3xl font-semibold text-white mb-6">Your Routeens</h1>
+
+    {% if routeens %}
+        <div class="flex flex-col gap-4">
+        {% for routeen in routeens %}
+            <a href={% url 'routeen' routeen.pk %} class=" ">
+                <div class="bg-white/10 rounded-md p-4 hover:bg-white/20 transition cursor-pointer">
+                    <p class="text-indigo-400 font-medium hover:underline">
+                        {{ routeen.title }}
+                    </p>
+                    <p class="text-sm text-white/60 mt-1">Uploaded on {{ routeen.created_at|date:"F j, Y" }}</p>
+                    <p class="text-sm text-white/50">Department: {{ routeen.department.name }}, Batch: {{ routeen.batch.name }}</p>
+                </div>
+            </a>
+        {% endfor %}
+        </div>
+    {% else %}
+        <p class="text-white/70 text-center mt-20 text-lg">No routeens found for your department and batch.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
