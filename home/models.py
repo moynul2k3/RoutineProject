@@ -13,7 +13,7 @@ class Department(models.Model):
     
 
 class Batch(models.Model):
-    depertment = models.ForeignKey(Department, related_name='depertment', on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, related_name='department', on_delete=models.CASCADE)
     name = models.CharField(max_length=500)
     created_at = models.DateField(auto_now_add=True)
 
@@ -21,7 +21,7 @@ class Batch(models.Model):
         ordering = ['-name']
 
     def __str__(self):
-        return f"{self.id}: {self.depertment.name}.  {self.name}"
+        return f"{self.id}: {self.department.name}.  Batch: {self.name}"
     
 
 class Routeen(models.Model):
@@ -35,4 +35,4 @@ class Routeen(models.Model):
         ordering = ['-created_at']
 
     def __str__(self):
-        return f"{self.id}. {self.depertment.name} {self.title}"
+        return f"{self.id}. {self.department.name}:-- {self.title}"
