@@ -78,7 +78,7 @@ def sign_up(request):
 
 
 def get_batches(request, department_id):
-    batches = Batch.objects.filter(depertment_id=department_id).order_by('-name')
+    batches = Batch.objects.filter(department_id=department_id).order_by('-name')
     batch_data = [{'id': b.id, 'name': b.name} for b in batches]
     return JsonResponse({'batches': batch_data})
 
