@@ -31,6 +31,10 @@ INSTALLED_APPS = [
     'home',
 ]
 
+CSRF_TRUSTED_ORIGINS = [
+    'https://routineproject.onrender.com',
+]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
