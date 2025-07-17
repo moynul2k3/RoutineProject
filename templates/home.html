@@ -4,7 +4,7 @@
 
 {% block content %}
 <div class="relative isolate px-6 pt-14 lg:px-8 h-screen z-30 flex flex-col justify-center items-center">
-    <div class="mx-auto max-w-2xl md:mt-40">
+    <div class="mx-auto max-w-2xl {% if request.user.is_authenticated %} md:pt-32 {% endif %}">
         <div class="hidden sm:mb-8 sm:flex sm:justify-center">
             <div class="relative rounded-full px-3 py-1 text-sm/6 text-white/50 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
             Welcome to MyRouteen.
@@ -20,7 +20,7 @@
         </div>
     </div>
     {% if request.user.is_authenticated %}
-    <div class="w-full mt-10 md:mt-32">
+    <div class="w-full mt-10 md:mt-20">
         <div class="flex flex-col justify-center items-center md:gap-3">
             <p class="max-md:text-xl md:text-3xl text-center">Today's Shedule</p>
             <p class="max-md:text-sm md:text-xl text-center ">{{ today_name }}</p>
