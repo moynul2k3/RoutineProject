@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django_browser_reload',
     'core',
     'home',
+    'my_routine',
 ]
 
 CSRF_TRUSTED_ORIGINS = [

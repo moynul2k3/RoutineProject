@@ -22,7 +22,7 @@ def sign_in(request):
         if user is not None:
             login(request, user)
             messages.success(request, 'Successfully logged in.')
-            return redirect('routeenlist')  # change to your landing page
+            return redirect('/')  # change to your landing page
         else:
             messages.error(request, 'Invalid credentials, please try again.')
     return render(request, 'signin.html') 
@@ -66,7 +66,7 @@ def sign_up(request):
             messages.success(request, 'Account created successfully.')
             user.backend = 'core.backends.AuthBackend'
             login(request, user)
-            return redirect('routeenlist')
+            return redirect('/')
         except IntegrityError:
             messages.error(request, 'Email or REG_no already exists.')
         except Department.DoesNotExist:

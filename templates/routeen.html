@@ -3,14 +3,13 @@
 {% block title %}| Routeen{% endblock %}
 
 {% block content %}
-<div class="min-h-[200px] h-auto pt-32 px-4 pb-20 w-full mx-auto z-30">
-
+<div class="h-full pt-32 px-4 pb-20 w-full mx-auto z-30">
     {% if routeen.pdf_file %}
-        <div class="w-full md:w-[70vw] mx-auto rounded-xl shadow-md p-4 relative">
+        <div class="w-full h-full md:w-[70vw] mx-auto rounded-xl shadow-md p-4 relative">
             <a href="{{ routeen.pdf_file.url }}" download class="text-white max-md:text-xs max-md:py-1 max-md:px-5 md:py-2 px-10 rounded-sm bg-indigo-600 absolute top-0 right-0">
                 Download PDF
             </a>
-            <div class="w-full mx-auto">
+            <div class="w-full h-full mx-auto">
                 <canvas id="pdf-render" class="w-full h-full border rounded "></canvas>
             </div>
         </div>
